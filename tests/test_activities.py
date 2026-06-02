@@ -1,0 +1,12 @@
+def test_get_activities_returns_activity_map(client):
+    # Arrange
+    endpoint = "/activities"
+
+    # Act
+    response = client.get(endpoint)
+
+    # Assert
+    assert response.status_code == 200
+    payload = response.json()
+    assert isinstance(payload, dict)
+    assert "Chess Club" in payload
